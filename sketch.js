@@ -25,12 +25,20 @@ function draw() {
   }  
 }
 
-// 수정 전 (buoyancy, wind 적용 전)
-// function draw() {
-//   background(220);
-//   for (let mover of movers) {
-//     mover.update();
-//     mover.show();
-//     mover.pass();
-//   }  
-// }
+
+function mouseClicked() {
+  let click = createVector(mouseX, mouseY);
+  let range = 50; 
+
+  for (let mover of movers) {
+    let d = p5.Vector.dist(click, mover.position);
+    
+    if (d < range) {
+      let impulseDir = p5.Vector.sub(mover.position, click); 
+      impulseDir.normalize();
+      
+      let impulse = impulseDir.mult(3); 
+      mover.applyForce(impulse);
+    }
+  }
+}
