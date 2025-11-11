@@ -24,3 +24,13 @@ function draw() {
     mover.pass();
   }  
 }
+
+// 수정 전 (buoyancy, wind 적용 전)
+// function draw() {
+//   background(220);
+//   for (let mover of movers) {
+//     mover.update();
+//     mover.show();
+//     mover.pass();
+//   }  
+// }
