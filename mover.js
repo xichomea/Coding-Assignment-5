@@ -26,4 +26,15 @@ class Mover {
     strokeWeight(2);
     ellipse(this.position.x, this.position.y, r, r * 1.3); 
   }
+
+  pass() {
+    if (this.position.y < 0) {
+      this.position.y = height;
+    }
+    if (this.position.x > width) {
+      this.position.x = 0;
+    } else if (this.position.x < 0) {
+      this.position.x = width;
+    }
+  }
 }
